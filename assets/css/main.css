@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: rgb(35, 35, 38);
+    --color-accent: rgb(74, 110, 145);
+    --color-accent-border: rgb(106, 143, 179);
+    --color-header: rgb(30, 30, 34);
+    --color-texty: rgb(236, 236, 236); /* Get it? Because the BevY ends with Y, so why not call it TextY? */
+}
