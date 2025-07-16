@@ -1,6 +1,6 @@
 <template>
 
-  <section class="section">
+  <section class="section open-up-animation">
     <div class="w-screen min-h-screen flex flex-col justify-center items-center text-center p-0.5 md:p-2">
       <h2 class="text-xl md:text-2xl lg:text-3xl font-bold">What Is This?</h2>
       <p class="text-lg lg:text-2xl">This is a webpage dedicated to unofficial Bevy Matrix Community.</p>
@@ -19,6 +19,16 @@
 @import "tailwindcss";
 @import "assets/css/main.css";
 @reference "assets/css/main.css";
+
+.open-up-animation {
+  animation: open-up-animation 3s ease-in-out 0s;
+  clip-path: circle(300% at 50% 50%);
+}
+
+@keyframes open-up-animation {
+  0% {clip-path: circle(0% at 50% 50%);}
+  100% {clip-path: circle(300% at 50% 50%);}
+}
 
 /* A class for section that holds common section styling. I added background to each section individualy. */
 .section {
