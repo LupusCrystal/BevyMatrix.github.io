@@ -1,19 +1,20 @@
 <template>
 
   <section class="section open-up-animation">
-    <div class="w-screen min-h-screen flex flex-col justify-center items-center text-center p-0.5 md:p-2">
-      <h2 class="text-xl md:text-2xl lg:text-3xl font-bold">What Is This?</h2>
-      <p class="text-lg lg:text-2xl">This is a webpage dedicated to unofficial Bevy Matrix Community.</p>
-      <p class="text-lg lg:text-2xl">It is a group of Matrix rooms dedicated to <a href="https://bevy.org" class="underline font-bold">Bevy Engine</a>, a refreshingly simple data-driven game engine built in Rust
-        Free and Open Source Forever!</p>
-      <p class="text-lg lg:text-2xl">You can join the rooms on this server by pressing the button on the bottom of this page.</p>
-      <p class="text-lg lg:text-2xl">This community follows <a href="https://github.com/bevyengine/bevy/blob/main/CODE_OF_CONDUCT.md" class="underline font-bold">Bevy Code of Conduct</a>.</p>
-
-      <button class="min-h-12 max-w-72 w-full border-accent-border border-4 rounded-full bg-accent font-bold text-xl md:text-2xl mt-4 mb-4 m-0.5 transition-all duration-200 ease-out hover:bg-accent-border hover:border-accent active:translate-y-2 active:scale-90"><a href="https://matrix.to/#/#space:bevy.club">Join Community</a></button>
+    <div id="markdown-page" class="w-screen min-h-screen flex flex-col justify-center items-center text-center p-0.5 md:p-2">
+      <ContentRenderer v-if="home" :value="home" />
+      <div v-else>Home not found</div>
     </div>
   </section>
 
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+const { data: home } = await useAsyncData(route.path, () => {
+  return queryCollection('pages').path(route.path).first()
+})
+</script>
 
 <style>
 @import "tailwindcss";
@@ -41,13 +42,3 @@
 }
 
 </style>
-
-<script>
-export default {
-  methods: {
-    do_alert(alert_message) {
-      alert(alert_message);
-    }
-  }
-}
-</script>
