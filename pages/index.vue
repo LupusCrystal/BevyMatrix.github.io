@@ -1,8 +1,8 @@
 <template>
 
   <section class="section open-up-animation">
-    <div id="markdown-page" class="w-screen min-h-screen flex flex-col justify-center items-center text-center p-0.5 md:p-2">
-      <ContentRenderer v-if="home" :value="home" />
+    <div class="w-screen min-h-screen flex flex-col justify-center items-center text-center p-0.5 md:p-2">
+      <ContentRenderer id="markdown-page" v-if="home" :value="home" />
       <div v-else>Home not found</div>
     </div>
   </section>
